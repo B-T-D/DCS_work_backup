@@ -1,0 +1,4 @@
+https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php
+
+https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv    one still works as of 2020-05-13 22:42
+

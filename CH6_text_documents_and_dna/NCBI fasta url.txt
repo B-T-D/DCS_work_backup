@@ -1,0 +1,1 @@
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AEQU02000001&rettype=fasta&retmode=text
