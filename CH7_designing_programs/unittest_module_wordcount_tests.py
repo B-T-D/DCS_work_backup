@@ -35,10 +35,6 @@ spleen and regulating the circulation."
 
         # What if text and word are the same?
         self.assertEqual(get_word_counts('a', 'a', 1), 1)
-        
-        
-        
-
 
 if __name__ == '__main__':
     unittest.main()
