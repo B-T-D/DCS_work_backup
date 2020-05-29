@@ -26,8 +26,7 @@ def carpet(tortoise, upper_left, width, depth):
         subsquare_upper_lefts = [upper_left,
                                  (upper_left[0], upper_left[1] - subwidth),
                                  (upper_left[0], upper_left[1] - (2 * subwidth)),
-                                 (upper_left[0] + su , b mhnjyhklutygkubxdfm
-                                  ;lbwidth, upper_left[1]),
+                                 (upper_left[0] + subwidth, upper_left[1]),
                                  (upper_left[0] + subwidth, upper_left[1] - 2 * subwidth),
                                  (upper_left[0] + 2 * subwidth, upper_left[1]),
                                  (upper_left[0] + 2 * subwidth, upper_left[1] - subwidth),
