@@ -10,12 +10,15 @@ def binary_search(keys, target, left, right):
             i.e. a slice of keys
 
     Retrns:
-        (int): index value of occurrence of target in keys, else -1
-            if target not in keys.
+        (int): index value of occurrence of target in keys, else the
+            values of the items on either side if target not in keys.
     """
 
     if left > right: # base case 1: not found
-        return keys[right], keys[left]
+        try:
+            return keys[right], keys[left]
+        except IndexError:
+            return keys[right], keys[0] # Does this make sense for what to return if item would be at end?
     mid = (left + right) // 2
     if target == keys[mid]: # base case 2: found
         return mid
@@ -97,6 +100,13 @@ expected = ('c', 'e')
 actual = binary_search(keys, target, 0, len(keys) - 1)
 assert actual == expected, f"actual {actual}, expected {expected}"
 print(f"ok on second simple case ('d' removed from the original keys)")
+
+keys = ['a', 'b', 'c', 'e', 'f', 'g']
+target = 'h'
+expected = ('g', 'a')
+actual = binary_search(keys, target, 0, len(keys) - 1)
+assert actual == expected, f"actual {actual}, expected {expected}"
+print(f"ok for case target would be last item in the sorted list")
 
 print(f"----Tests for iterative version----")
 keys = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
