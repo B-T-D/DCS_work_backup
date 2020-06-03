@@ -1,4 +1,4 @@
-def swap(data, i, j):
+    def swap(data, i, j):
     """Swaps the positions of the items with indices i and j in list data.
     Returns:
         None

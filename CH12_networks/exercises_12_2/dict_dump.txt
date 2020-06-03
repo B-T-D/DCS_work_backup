@@ -1,0 +1,13 @@
+{'Amelia': ['Beth', 'Caroline', 'Lillian', 'Nick'],
+'Beth': ['Amelia', 'Cathy', 'Dave', 'Nick'],
+'Caroline': ['Amelia', 'Lillian', 'Nick'],
+'Cathy': ['Beth', 'Dave', 'Ted'],
+'Dave': ['Beth', 'Cathy', 'Christina'],
+'Lillian': ['Amelia', 'Caroline', 'Nick'],
+'Nick': ['Amelia', 'Beth', 'Caroline', 'Lillian'],
+'Ted': ['Cathy', 'Christina'],
+'Kevin': ['Christina'],
+'Vanessa': ['Christina'],
+'Christina': ['Kevin', 'Ted', 'Vanessa', 'Tyler', 'Ryder', 'Dave'],
+'Tyler': ['Christina', 'Ryder'],
+'Ryder': ['Tyler', 'Christina']}
