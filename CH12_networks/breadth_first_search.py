@@ -1,5 +1,15 @@
 def bfs(network, source):
-    """Version without the internal 'visited' tracker dict."""
+    """Perform a breadth-first search on network, starting from source.
+
+    Args:
+        network (dict): a graph represented by a dict
+        source: the node in network from which to start the BFS
+
+    Returns:
+        distance (dict): a dictionary with distances from source to each node.
+        predecessor (dict): a dictionary listing the node preceding each node
+            on the shortest path from it to the source.
+    """
     distance = {}
     predecessor = {}
     for node in network:
@@ -17,6 +27,7 @@ def bfs(network, source):
     return distance, predecessor
 
 def bfs_old(network, source):
+    # Version with the internal visited tracker dict
     """Perform a breadth-first search on network, starting from source.
 
     Args:
