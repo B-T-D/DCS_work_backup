@@ -14,7 +14,11 @@ class Pair:
         self._a = a # the pair's first value
         self._b = b # the pair's second value
 
-    # Accessor methods:
+    def __str__(self):
+        """Return an '(a, b)' string representation of self."""
+
+        return '(' + str(self._a) + ', ' + str(self._b) + ')'
+
     def get_first(self):
         """Return the first value of the pair object self."""
         return self._a
@@ -31,7 +35,7 @@ class Pair:
         """
         return (self._a, self._b)
 
-    def add(self, pair2):
+    def __add__(self, pair2):
         """Return a new Pair representing the component-wise sum of self and
         pair2.
 
@@ -47,7 +51,7 @@ class Pair:
         sum_B = self._b + pair2._b
         return Pair(sum_A, sum_B)
 
-    def subtract(self, pair2):
+    def __sub__(self, pair2):
         """Return a new pair representing the component-wise difference of self
         and pair2."""
 
@@ -55,7 +59,47 @@ class Pair:
         diff_B = self._b - pair2._b
         return Pair(diff_A, diff_B)
 
-    # Mutator methods:
+    def __mul__(self, scalar):
+        """Return a new Pair representing self multiplied by scalar."""
+
+        return Pair(self._a * scalar, self._b * scalar)
+
+    def __truediv__(self, scalar):
+        return Pair(self._a / scalar, self._b / scalar)
+
+    def __floordiv__(self, scalar):
+        return Pair(self._a // scalar, self._b // scalar)
+
+    def __eq__(self, pair2):
+        """Return True if self and pair2 contain the same ordered pair, else
+        False."""
+
+        return (self._a == pair2._a) and (self._b == pair2._b)
+
+    def __ne__(self, pair2):
+        return (self._a != pair2._a) or (self._b != pair2._b)
+
+    def __lt__(self, pair2):
+        """Return whether self < pair2."""
+        return (self._a < pair2._a) or \
+               ((self._a == pair2._a) and (self._b < pair2._b))
+
+    def __getitem__(self, index):
+        """Return the first or second index value in self. For values other than
+        0 or 1, return None."""
+        if index == 0:
+            return self._a
+        if index == 1:
+            return self._b
+        return None
+
+    def __setitem__(self, index, value):
+        """Set the first or second index value in self to the given value."""
+        if index == 0:
+            self._a = value
+        elif index == 1:
+            self._b = value
+
     def set(self, a, b):
         """Set the two values in self.
 
@@ -105,7 +149,7 @@ def centroid(points):
         return None
     sum = Pair() # sum is the Pair(0, 0)
     for point in points:
-        sum = sum.add(point)
+        sum += point
     sum.scale(1 / n) # divide sum by the number of points
     return sum
 
@@ -117,7 +161,21 @@ def main():
 
     mypair = Pair(3.14159, 3.333333)
     mypair.round()
-    print(mypair.get())
+    print(mypair)
+
+    print(f"mypair is {mypair}")
+    scalar = 4
+    print(f"mypair * {scalar}: {mypair * scalar}")
+    print(f"mypair / {scalar}: {mypair / scalar}")
+    print(f"mypair // {scalar}: {mypair // scalar}")
+    print(f"mypair == Pair(3, 3): {mypair == Pair(3, 3)}")
+    print(f"mypair != Pair(4, 3): {mypair != Pair(4, 3)}")
+    print(f"mypair < Pair(2, 4): {mypair < Pair(2, 4)}")
+    print(f"mypair > Pair(2, 4): {mypair > Pair(2, 4)}")
+    print(f"mypair[0]: {mypair[0]}")
+    mypair[0] = 5000
+    print(f"mypair[0] = 5000: {mypair[0]}")
+    
     
 ##    pair = Pair()
 ##    print(pair._a)
@@ -140,4 +198,5 @@ def main():
 ##    duo1.scale(20)
 ##    print(duo1.get())
 
-main()
+if __name__ == '__main__':
+    main()
