@@ -1,3 +1,7 @@
+# This is a naieve queue implementation--using pop(0) calls as the dequeue
+#   implementation would be very inefficient (deleting first element of an
+#   array.
+
 class Queue:
     """Implements a queue abstract data type."""
 
